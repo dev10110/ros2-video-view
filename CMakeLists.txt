@@ -16,20 +16,6 @@ find_package(cv_bridge REQUIRED)
 
 include_directories(include)
 
-# add_executable(video_viewer src/video_viewer.cpp)
-# target_include_directories(video_viewer PUBLIC
-#   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-#   $<INSTALL_INTERFACE:include>)
-# target_compile_features(video_viewer PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-# ament_target_dependencies(video_viewer
-#   rclcpp
-#   sensor_msgs
-#   OpenCV
-#   )
-# 
-# install(TARGETS video_viewer
-#   DESTINATION lib/${PROJECT_NAME})
-
 
 set(node_plugins "")
 

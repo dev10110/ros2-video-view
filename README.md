@@ -24,7 +24,9 @@ ros2 run video_view video_viewer_node  --ros-args -p image_topic:=/camera/color/
 ```
 Don't forget to set the `image_topic`!!
 
-Parameters:
+You can also run it as a composable node, since I've defined a component `video_view::VideoViewer`
+
+## Parameters:
 
 - `image_topic`: base name of the image topic to subscribe to
   - Default: `image`
@@ -41,6 +43,7 @@ Parameters:
   - Choose from `raw`, `compressed`, `theora`
   - Default: `compressed`
   - Example: `-p image_transport:=theora`
+  - Theora reduces the images the most, and is best for video streams. 
  
 
 If you see the error message
