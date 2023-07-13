@@ -34,6 +34,8 @@ ros2 run video_view video_viewer_node  --ros-args -p image_topic:=/camera/color/
 ```
 Don't forget to set the `image_topic` and source your workspace!
 
+A GUI will pop up and it will show you the video stream. To exit, press `ESC` or `q`.
+
 You can also run it as a composable node, using the component `video_view::VideoViewer`
 
 ## Parameters:
