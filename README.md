@@ -5,26 +5,36 @@ provides a simple alternative to visualize videos on the ROS2 network, since the
 
 ## Installation
 
-You will need to following:
+You need access to the following libraries:
 ```
-sudo apt-get install ros-${ROS_DISTRO}-image-transport ros-${ROS_DISTRO}-compressed-image-transport
+  image-transport
+  compressed-image-transport
+  theora-image-transport      [OPTIONAL]
+  OpenCV
 ```
-and optionally `ros-${ROS_DISTRO}-theora-image-transport`
+Note, the `image_transport` libraries must also be installed on the computer publishing the images. `OpenCV` is not requried on the publisher side.
 
-These libraries also need to be installed on the device where the video stream is being generated
+Eg.
+```
+sudo apt-get install \ 
+  ros-${ROS_DISTRO}-image-transport \
+  ros-${ROS_DISTRO}-compressed-image-transport \
+  ros-${ROS_DISTRO}-theora-image-transport
+```
 
-You also need `OpenCV` installed on the system.
-
-Clone this repo to your `colcon_ws` and just build it `colcon build`
+Clone this repo to your `colcon_ws` and just build it:
+```
+colcon build
+```
 
 ## Usage
 
 ```
 ros2 run video_view video_viewer_node  --ros-args -p image_topic:=/camera/color/image_raw
 ```
-Don't forget to set the `image_topic`!!
+Don't forget to set the `image_topic` and source your workspace!
 
-You can also run it as a composable node, since I've defined a component `video_view::VideoViewer`
+You can also run it as a composable node, using the component `video_view::VideoViewer`
 
 ## Parameters:
 
@@ -46,6 +56,7 @@ You can also run it as a composable node, since I've defined a component `video_
   - Theora reduces the images the most, and is best for video streams. 
  
 
+## Troubleshooting
 If you see the error message
 ```
 [WARN] [1689224185.637869370] [TheoraSubscriber]: [theora] Packet was not a Theora header
