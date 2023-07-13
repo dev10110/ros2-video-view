@@ -21,9 +21,6 @@ public:
 
 protected:
   void imageCallback(const sensor_msgs::msg::Image::ConstSharedPtr &img);
-  void
-  camera_callback(const sensor_msgs::msg::Image::ConstSharedPtr &img,
-                  const sensor_msgs::msg::CameraInfo::ConstSharedPtr &cam_info);
 
 private:
   // subscribers
