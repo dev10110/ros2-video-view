@@ -16,7 +16,7 @@ Note, the `image_transport` libraries must also be installed on the computer pub
 
 Eg.
 ```
-sudo apt-get install \ 
+sudo apt-get update && sudo apt-get install \ 
   ros-${ROS_DISTRO}-image-transport \
   ros-${ROS_DISTRO}-compressed-image-transport \
   ros-${ROS_DISTRO}-theora-image-transport
