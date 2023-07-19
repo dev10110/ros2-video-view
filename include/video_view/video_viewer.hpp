@@ -28,6 +28,7 @@ private:
 
   // parameters
   std::string param_rotate_;
+  std::string topic_;
 };
 
 } // namespace video_view

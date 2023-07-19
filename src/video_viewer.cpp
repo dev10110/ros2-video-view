@@ -40,7 +40,7 @@ VideoViewer::VideoViewer(const rclcpp::NodeOptions &options)
     : Node("video_viewer", options) {
 
   this->declare_parameter<std::string>("image_topic", "image");
-  std::string topic = this->get_parameter("image_topic").as_string();
+  topic_ = this->get_parameter("image_topic").as_string();
 
   this->declare_parameter<std::string>("image_transport", "compressed");
   std::string transport = this->get_parameter("image_transport").as_string();
@@ -54,7 +54,7 @@ VideoViewer::VideoViewer(const rclcpp::NodeOptions &options)
   auto qos = qos_string_to_qos(qos_string);
 
   sub_ = image_transport::create_subscription(
-      this, topic,
+      this, topic_,
       std::bind(&VideoViewer::imageCallback, this, std::placeholders::_1),
       transport, qos);
 
@@ -77,7 +77,7 @@ void VideoViewer::imageCallback(
   }
 
   if (param_rotate_ == "rotate_0") {
-    cv::imshow("image", cv_ptr->image);
+    cv::imshow(topic_, cv_ptr->image);
   } else if (param_rotate_ == "rotate_90") {
     cv::Mat rot_image;
     cv::rotate(cv_ptr->image, rot_image, cv::ROTATE_90_CLOCKWISE);
