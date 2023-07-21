@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.16)
 project(video_view)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
@@ -29,6 +29,9 @@ target_compile_definitions(video_view_component
 target_link_libraries(video_view_component
     ${OpenCV_LIBS}
 )
+target_precompile_headers(video_view_component
+  PRIVATE include/video_view/precompile.hpp
+  )
 ament_target_dependencies(video_view_component
         rclcpp
         rclcpp_components

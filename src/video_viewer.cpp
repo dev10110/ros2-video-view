@@ -1,15 +1,5 @@
 #include "video_view/video_viewer.hpp"
 
-#include "image_transport/image_transport.hpp"
-#include "opencv2/highgui/highgui.hpp"
-#include "rclcpp/rclcpp.hpp"
-#include "sensor_msgs/image_encodings.hpp"
-#include <cv_bridge/cv_bridge.h>
-
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
-
-#include <chrono>
 
 using namespace std::chrono_literals;
 using namespace std::placeholders;
