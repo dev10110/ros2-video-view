@@ -1,6 +1,6 @@
 # Video Viewer
 
-provides a simple alternative to visualize videos on the ROS2 network, since the QoS settings and the compression settings are important and seemingly cant be set in the native tools like `rqt_image_view`.
+This provides a simple alternative to visualize videos on the ROS2 network, since the QoS settings and the compression settings are important and seemingly cant be set in the native tools like `rqt_image_view`.
 
 
 ## Installation
