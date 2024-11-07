@@ -1,6 +1,6 @@
 # Video Viewer
 
-provides a simple alternative to visualize videos on the ROS2 network, since the QoS settings and the compression settings are important and seemingly cant be set in the native tools like `rqt_image_view`. 
+provides a simple alternative to visualize videos on the ROS2 network, since the QoS settings and the compression settings are important and seemingly cant be set in the native tools like `rqt_image_view`.
 
 
 ## Installation
@@ -16,7 +16,7 @@ Note, the `image_transport` libraries must also be installed on the computer pub
 
 Eg.
 ```
-sudo apt-get update && sudo apt-get install \ 
+sudo apt-get update && sudo apt-get install \
   ros-${ROS_DISTRO}-image-transport \
   ros-${ROS_DISTRO}-compressed-image-transport \
   ros-${ROS_DISTRO}-theora-image-transport
@@ -43,7 +43,7 @@ You can also run it as a composable node, using the component `video_view::Video
 - `image_topic`: base name of the image topic to subscribe to
   - Default: `image`
   - Example `-p image_topic:=/camera/color/image_raw`
-- `qos`: Quality of service 
+- `qos`: Quality of service
   - Choose from `SYSTEM_DEFAULT`, `DEFAULT`, `PARAMETER_EVENTS`, `SERVICES_DEFAULT`, `PARAMETERS`, `SENSOR_DATA`
   - Default: `SENSOR_DATA`
   - Example: `-p qos:=SENSOR_DATA`
@@ -55,19 +55,18 @@ You can also run it as a composable node, using the component `video_view::Video
   - Choose from `raw`, `compressed`, `theora`
   - Default: `compressed`
   - Example: `-p image_transport:=theora`
-  - Theora reduces the images the most, and is best for video streams. 
- 
+  - Theora reduces the images the most, and is best for video streams.
+
 
 ## Troubleshooting
 If you see the error message
 ```
 [WARN] [1689224185.637869370] [TheoraSubscriber]: [theora] Packet was not a Theora header
 ```
-it is because the image transport was started before this node was launched. You need to restart the source image stream. 
+it is because the image transport was started before this node was launched. You need to restart the source image stream.
 If using a realsense camera, it is as simple as running
 ```
 ros2 param set camera/camera enable_color False
 ros2 param set camera/camera enable_color True
 ```
-I've noticed that this needs to be run on the local device that has the realsense node running. 
-
+I've noticed that this needs to be run on the local device that has the realsense node running.

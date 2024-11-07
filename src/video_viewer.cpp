@@ -1,6 +1,5 @@
 #include "video_view/video_viewer.hpp"
 
-
 using namespace std::chrono_literals;
 using namespace std::placeholders;
 
