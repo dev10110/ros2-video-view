@@ -71,17 +71,17 @@ void VideoViewer::imageCallback(
   } else if (param_rotate_ == "rotate_90") {
     cv::Mat rot_image;
     cv::rotate(cv_ptr->image, rot_image, cv::ROTATE_90_CLOCKWISE);
-    cv::imshow("image", rot_image);
+    cv::imshow(topic_, rot_image);
 
   } else if (param_rotate_ == "rotate_180") {
     cv::Mat rot_image;
     cv::rotate(cv_ptr->image, rot_image, cv::ROTATE_180);
-    cv::imshow("image", rot_image);
+    cv::imshow(topic_, rot_image);
 
   } else if (param_rotate_ == "rotate_270") {
     cv::Mat rot_image;
     cv::rotate(cv_ptr->image, rot_image, cv::ROTATE_90_COUNTERCLOCKWISE);
-    cv::imshow("image", rot_image);
+    cv::imshow(topic_, rot_image);
   }
 
   char key = cv::waitKey(1);
